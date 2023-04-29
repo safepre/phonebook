@@ -1,0 +1,7 @@
+node_modules/
+Stack/three/node_modules/
+Stack/three/.dockerignore
+Stack/three/Dockerfile
+Stack/three/fly.toml
+Stack/three/.env
+Stack/three/build
