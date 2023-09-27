@@ -1,3 +1,3 @@
 # phonebook
 ### [PhoneBook](https://phonebookfullstacko.fly.dev/)
-Used MongoDB, React, Express.js, and Fly.io 
+Used MongoDB ODM Library - (Mongoose), JavaScript Library (React), Node.js Framework (Express.js), and Fly.io for deployment 
