@@ -4,6 +4,26 @@ import PersonForm from './components/PersonForm.jsx'
 import Persons from './components/Persons.jsx'
 import personService from './services/persons.jsx'
 import Notification from './components/Notification.jsx'
+import styled from 'styled-components'
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #87ceeb; /* Light Sky Blue, a tropical color */
+  height: 100vh; /* Center vertically */
+  padding: 20px;
+`
+
+const Heading = styled.h2`
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Your Chosen Font', sans-serif; /* Replace with your chosen font */
+  color: #006400; /* Dark Green, a tropical color */
+  font-size: 2rem;
+  letter-spacing: 1px;
+  line-height: 1.5;
+`
 
 const App = () => {
   const [persons, setPersons] = useState([])
@@ -89,13 +109,11 @@ const App = () => {
     }
   }
   return (
-    <div>
-      <h2>Phonebook</h2>
-      {console.log('Msg:', Msg)}
-      {console.log('errorMsg:', errorMsg)}
+    <AppContainer>
+      <Heading>Phonebook</Heading>
       <Notification message={Msg} error={errorMsg} />
       <Filter filter={newFilter} handleChange={handleData(setFilter)} />
-      <h2>add a new</h2>
+      <Heading> Create </Heading>
       <PersonForm
         handle={addName}
         name={newName}
@@ -103,7 +121,7 @@ const App = () => {
         handleChangeName={handleData(setNewName)}
         handleChangeNumber={handleData(setNewNumber)}
       />
-      <h2>Numbers</h2>
+      <Heading>Numbers</Heading>
       {persons && (
         <Persons
           persons={persons}
@@ -111,7 +129,7 @@ const App = () => {
           removePerson={handleRemovePerson}
         />
       )}
-    </div>
+    </AppContainer>
   )
 }
 
