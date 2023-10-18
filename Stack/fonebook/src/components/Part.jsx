@@ -33,7 +33,7 @@ const DeleteButton = styled.button`
 const Part = ({ name, number, removePerson }) => (
   <PartContainer key={name}>
     {' '}
-    {name} {number} <DeleteButton onClick={removePerson}>delete</DeleteButton>
+    {name} {number} <DeleteButton onClick={removePerson}>Delete</DeleteButton>
   </PartContainer>
 )
 

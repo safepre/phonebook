@@ -65,7 +65,7 @@ const PersonForm = ({
       Number <StyledInput value={number} onChange={handleChangeNumber} />
     </InputContainer>
     <InputContainer>
-      <StyledButton type="submit">add</StyledButton>
+      <StyledButton type="submit">Create</StyledButton>
     </InputContainer>
   </StyledForm>
 )
