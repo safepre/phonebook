@@ -1,37 +1,54 @@
 import styled from 'styled-components'
 
-const FormContainer = styled.div`
-  background-color: #ffd700; /* Gold, a tropical color */
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 20px;
-`
-
-const InputField = styled.div`
-  margin: 10px 0;
+const StyledForm = styled.form`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  label {
-    width: 100px; /* Adjust the width as needed */
-    margin-right: 10px;
-  }
-  input {
-    flex: 1;
-    padding: 5px;
-    border: 1px solid #87ceeb; /* Light Sky Blue, a tropical color */
-    border-radius: 5px;
+  padding: 20px;
+  background-color: #fff; /* White background for the form */
+  border: 1px solid #7c37d4; /* Darker purple border */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+`
+
+const InputContainer = styled.div`
+  display: flex;
+  color: #f4e9d3; /* Slightly darker cream text color */
+  text-shadow: 1px 1px 1px #000; /* Add a subtle black outline */
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+`
+
+const StyledInput = styled.input`
+  border: 2px solid #000; /* Add a border with the cream color */
+  border-radius: 10px; /* Set the border-radius to create rounded corners */
+  color: #f4e9d3; /* Text color */
+  text-shadow: 1px 1px 1px #000; /* Add text shadow */
+  padding: 8px; /* Adjust padding as needed */
+  outline: none; /* Remove the default outline */
+  box-shadow: none; /* Remove any box-shadow effect */
+  transition: text-shadow 0.3s; /* Add a transition for text-shadow */
+
+  &:focus {
+    text-shadow: 1px 1px 1px #000; /* Text shadow on focus, matching your InputContainer */
   }
 `
 
-const SubmitButton = styled.button`
-  background-color: #87ceeb; /* Light Sky Blue, a tropical color */
-  color: white;
+const StyledButton = styled.button`
+  padding: 10px 20px;
+  background-color: #50267e; /* Darker Twitch purple */
+  color: #fff; /* White text for high contrast */
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: #503180; /* Darker purple on hover */
+  }
 `
+
 const PersonForm = ({
   handle,
   name,
@@ -39,23 +56,17 @@ const PersonForm = ({
   handleChangeName,
   handleChangeNumber,
 }) => (
-  <FormContainer>
-    <form onSubmit={handle}>
-      <InputField>
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" value={name} onChange={handleChangeName} />
-      </InputField>
-      <InputField>
-        <label htmlFor="number">Number:</label>
-        <input
-          type="text"
-          id="number"
-          value={number}
-          onChange={handleChangeNumber}
-        />
-      </InputField>
-      <SubmitButton type="submit">Add</SubmitButton>
-    </form>
-  </FormContainer>
+  <StyledForm onSubmit={handle}>
+    <InputContainer>
+      Name
+      <StyledInput value={name} onChange={handleChangeName} />
+    </InputContainer>
+    <InputContainer>
+      Number <StyledInput value={number} onChange={handleChangeNumber} />
+    </InputContainer>
+    <InputContainer>
+      <StyledButton type="submit">add</StyledButton>
+    </InputContainer>
+  </StyledForm>
 )
 export default PersonForm

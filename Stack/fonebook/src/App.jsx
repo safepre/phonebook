@@ -6,25 +6,25 @@ import personService from './services/persons.jsx'
 import Notification from './components/Notification.jsx'
 import styled from 'styled-components'
 
-const AppContainer = styled.div`
+const ModernHeading = styled.h2`
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-weight: bold;
+  color: #fff; /* White text for high contrast on dark background */
+  font-size: 1.5rem; /* Adjust font size as needed */
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle text shadow */
+`
+
+const ModernAppContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #87ceeb; /* Light Sky Blue, a tropical color */
-  height: 100vh; /* Center vertically */
   padding: 20px;
+  font-family: 'Helvetica', Arial, sans-serif;
 `
-
-const Heading = styled.h2`
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-family: 'Your Chosen Font', sans-serif; /* Replace with your chosen font */
-  color: #006400; /* Dark Green, a tropical color */
-  font-size: 2rem;
-  letter-spacing: 1px;
-  line-height: 1.5;
-`
-
 const App = () => {
   const [persons, setPersons] = useState([])
   const [newName, setNewName] = useState('')
@@ -109,11 +109,11 @@ const App = () => {
     }
   }
   return (
-    <AppContainer>
-      <Heading>Phonebook</Heading>
+    <ModernAppContainer>
+      <ModernHeading>Phonebook</ModernHeading>
       <Notification message={Msg} error={errorMsg} />
       <Filter filter={newFilter} handleChange={handleData(setFilter)} />
-      <Heading> Create </Heading>
+      <ModernHeading> Create </ModernHeading>
       <PersonForm
         handle={addName}
         name={newName}
@@ -121,7 +121,7 @@ const App = () => {
         handleChangeName={handleData(setNewName)}
         handleChangeNumber={handleData(setNewNumber)}
       />
-      <Heading>Numbers</Heading>
+      <ModernHeading>Numbers</ModernHeading>
       {persons && (
         <Persons
           persons={persons}
@@ -129,7 +129,7 @@ const App = () => {
           removePerson={handleRemovePerson}
         />
       )}
-    </AppContainer>
+    </ModernAppContainer>
   )
 }
 

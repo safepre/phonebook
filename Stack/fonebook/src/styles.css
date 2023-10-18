@@ -1,0 +1,10 @@
+body {
+  background-color: rgba(
+    212,
+    212,
+    212,
+    0.985
+  ); /* Dark Black background for the entire page */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
